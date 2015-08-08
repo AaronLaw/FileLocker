@@ -111,13 +111,13 @@ def lookupSubfolder(path):
     try:
         return os.listdir(path)
 
-    except (FileNotFoundError):
+    except (FileNotFoundError): # path does not exist
         return "Cannot find the given path: " + path
 
 def testlookupSubfolder(path):
     print(lookupSubfolder(path))
 
-testlookupSubfolder('H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\C')
+# testlookupSubfolder('H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\C')
 testlookupSubfolder(lookupFolderPath('AC0018')) # it exists
 testlookupSubfolder(lookupFolderPath('AC00180')) # it does not exist
 
