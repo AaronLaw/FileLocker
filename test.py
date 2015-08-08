@@ -35,10 +35,8 @@ print(path)
 def replacePathSeperator(path, oldSep, newSep):
     '''correct path from '\' to '\\' on Windows
     '''
-    path = path.replace(oldSep, newSep)
-    return path
+    return path.replace(oldSep, newSep)
 
-print(replacePathSeperator(base_src, '\\', '/') )
 #print(replacePathSeperator(base_src, '/', os.sep) #os.sep is '\\' on Windows
 
 def lookupFolderEncoding(folderName):
@@ -110,13 +108,17 @@ testlookupFolderPath('DB0003')
 def lookupSubfolder(path):
     """To lookup subfolders in a given path
     """
-    return os.listdir(path)
+    try:
+        return os.listdir(path)
 
+    except (FileNotFoundError):
+        return "Cannot find the given path: " + path
 
 def testlookupSubfolder(path):
     print(lookupSubfolder(path))
 
-testlookupSubfolder('d:\\site\\')
+testlookupSubfolder('H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\C')
+testlookupSubfolder(lookupFolderPath('AC0018'))
 
 
 def selectSubfolder():
