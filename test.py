@@ -38,7 +38,7 @@ def replacePathSeperator(path, oldSep, newSep):
 print(replacePathSeperator(base_src, '\\', '/') )
 #print(replacePathSeperator(base_src, '/', os.sep) #os.sep is '\\' on Windows
 
-def folderEncodingLookUp(folderName):
+def lookupFolderEncoding(folderName):
     """Given a folder code, and then return a folder path
 
     Where the folder should be located? Its 1st char is the hints.
@@ -83,13 +83,14 @@ def folderEncodingLookUp(folderName):
     secondChar = folderName[1:2] # character in position 1
     return os.path.join(lookUpTable[firstChar], secondChar, folderName)
 
-def testFolderEncodingLookup(folderName):
-    print(folderEncodingLookUp(folderName))
+def testlookupFolderEncoding(folderName):
+    print(lookupFolderEncoding(folderName))
 
-testFolderEncodingLookup('AC0078')
-testFolderEncodingLookup('AB0079')
-testFolderEncodingLookup('DY0084')
-testFolderEncodingLookup('DM0003')
+testlookupFolderEncoding('AC0078')
+testlookupFolderEncoding('AB0079')
+testlookupFolderEncoding('DY0084')
+testlookupFolderEncoding('DM0003')
+
 
 # for folder in folders:
 #     src = base_src + '\\' + folder
