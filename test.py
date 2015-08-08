@@ -94,7 +94,7 @@ testlookupFolderEncoding('DM0003')
 
 def lookupFolderPath(folderName):
     folderCode = lookupFolderEncoding(folderName)
-    return os.path.join(base_path, 'Yr'+year, folderCode, folderName)
+    return os.path.join(base_path, 'Yr '+year, folderCode, folderName)
 
 def testlookupFolderPath(folderName):
     print(lookupFolderPath(folderName))
@@ -118,7 +118,8 @@ def testlookupSubfolder(path):
     print(lookupSubfolder(path))
 
 testlookupSubfolder('H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\C')
-testlookupSubfolder(lookupFolderPath('AC0018'))
+testlookupSubfolder(lookupFolderPath('AC0018')) # it exists
+testlookupSubfolder(lookupFolderPath('AC00180')) # it does not exist
 
 
 def selectSubfolder():
