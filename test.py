@@ -20,11 +20,23 @@ print(os.pathsep)
 print(os.path.join('a:', os.sep, 'c') )
 print(os.path.dirname(base_src))
 
+
+base_src1="H:\FILES\2_AUDIT DEPT\Yr 2015\AC\A".split('\\')
+print(base_src1)
+
+for element in base_src1:
+    path = os.path.join(element)
+print(path)
+
+
 def replacePathSeperator(path, oldSep, newSep):
     '''correct path from '\' to '\\' on Windows
     '''
     path = path.replace(oldSep, newSep)
     return path
+
+print(replacePathSeperator(base_src, '\\', '/') )
+#print(replacePathSeperator(base_src, '/', os.sep) #os.sep is '\\' on Windows
 
 def folderEncodingLookUp(folder):
     """Given a folder code, and then return a folder path
@@ -48,7 +60,6 @@ def folderEncodingLookUp(folder):
     # Lookup from the lookup table
     # Generate a path
 
-# print(replacePathSeperator(base_src, '/', os.sep) #os.sep is '\\' on Windows
 
 # for folder in folders:
 #     src = base_src + '\\' + folder
