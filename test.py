@@ -7,8 +7,23 @@ As it uses Robocopy, Windows only
 
 import shutil
 
-folder="AA0025"
-base_src="H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\A"
-base_dist="Y:\\test"
+folders=['AA0008', 'AA0025']
+# folder='AA0025'
+base_src='H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\A'
+base_dist='Y:\\test'
 
-shutil.copytree(base_src, base_dist)
+
+for folder in folders:
+    src = base_src + '\\' + folder
+    dist = base_dist + '\\' + folder
+    try:
+        shutil.copytree(src, dist)
+        #try the move()
+        shutil.move(dist, base_dist + '\\move\\')
+        print('Copy '+ folder +' is ok')
+
+    except (FileExistsError):
+        print('there is an error on coping ' + folder)
+
+    finally:
+        pass
