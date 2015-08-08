@@ -13,7 +13,10 @@ from pathlib import Path, PurePath
 
 folders=['AA0008', 'AA0025']
 # folder='AA0025'
-base_src='H:\\FILES\\2_AUDIT DEPT\\Yr 2015\AC\\A'
+year = '2015'
+base_path = os.path.join('H:\\', 'FILES', '2_AUDIT DEPT')
+
+base_src='H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\A'
 base_dist='Y:\\FILES\\2_AUDIT DEPT\\Lock 2015'
 
 print(os.pathsep)
@@ -93,7 +96,7 @@ testlookupFolderEncoding('DM0003')
 
 def lookupFolderPath(folderName):
     folderCode = lookupFolderEncoding(folderName)
-    return os.path.join(folderCode, folderName)
+    return os.path.join(base_path, 'Yr'+year, folderCode, folderName)
 
 def testlookupFolderPath(folderName):
     print(lookupFolderPath(folderName))
