@@ -26,6 +26,28 @@ def replacePathSeperator(path, oldSep, newSep):
     path = path.replace(oldSep, newSep)
     return path
 
+def folderEncodingLookUp(folder):
+    """Given a folder code, and then return a folder path
+
+    Where the folder should be located? Its 1st char is the hints.
+    For example:
+    AB0079 => AC/B/AB0079
+    DE0005 => DY/E/DE0005
+    Ax => AC/x
+    Dx => DY/x
+    Fx => FC/x
+    Gx => GC/x
+    Yx => IY/x
+    Px => PW/x
+    Rx => RL/x
+    Sx => SH/x
+    LX => SL/x
+    Tx => TO/x
+    """
+    # Get the 1st char of the folder
+    # Lookup from the lookup table
+    # Generate a path
+
 # print(replacePathSeperator(base_src, '/', os.sep) #os.sep is '\\' on Windows
 
 # for folder in folders:
