@@ -17,3 +17,6 @@ I should use os.path.join() to build a path rather than I build it myself with '
 To build a lookup table:
 To analysis first, than build a data structure of key-value pairs by dict:
 -> https://docs.python.org/3/tutorial/datastructures.html
+
+To list a directory:
+https://docs.python.org/3/library/os.html -> os.listdir() in https://docs.python.org/3/library/os.html#os-file-dir

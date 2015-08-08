@@ -107,6 +107,22 @@ testlookupFolderPath('DY0084')
 testlookupFolderPath('DB0003')
 
 
+def lookupSubfolder(path):
+    """To lookup subfolders in a given path
+    """
+    return os.listdir(path)
+
+
+def testlookupSubfolder(path):
+    print(lookupSubfolder(path))
+
+testlookupSubfolder('d:\\site\\')
+
+
+def selectSubfolder():
+    """Interactive with user to select a given set of subfolders
+    """
+
 # for folder in folders:
 #     src = base_src + '\\' + folder
 #     dist = base_dist + '\\' + folder
