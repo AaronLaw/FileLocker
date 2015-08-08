@@ -112,7 +112,7 @@ def lookupSubfolder(path):
         return os.listdir(path)
 
     except (FileNotFoundError): # path does not exist
-        return "Cannot find the given path: " + path
+        print ("Cannot find the given path: " + path)
 
 def testlookupSubfolder(path):
     print(lookupSubfolder(path))
@@ -122,9 +122,37 @@ testlookupSubfolder(lookupFolderPath('AC0018')) # it exists
 testlookupSubfolder(lookupFolderPath('AC00180')) # it does not exist
 
 
-def selectSubfolder():
+def selectSubfolder(path):
     """Interactive with user to select a given set of subfolders
     """
+    lists = lookupSubfolder(lookupFolderPath(path))
+    i = 1
+    for folder in lists:
+        print(str(i) + '......' + folder)
+        i = i+1
+    user_select = input('Which one?')
+    print(lists[int(user_select)])
+
+    # rename = None
+    # while rename=None:
+    #     is_rename = input('Need to rename?')
+    #     case 'y':
+    #     case 'n':
+    is_rename = input('Need to rename?')
+    rename = {'y':'y', 'Y':'y','Yes':'y',
+                'n':'n', 'N':'n','No':'n'}
+
+    try:
+        print('You say ' + rename[is_rename])
+    except (KeyError):
+        print('Please choose between "Y" or "N".')
+    print(is_rename)
+
+
+def testselectSubfolder(path):
+    print(selectSubfolder(path))
+
+testselectSubfolder('AC0018')
 
 # for folder in folders:
 #     src = base_src + '\\' + folder
