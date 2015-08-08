@@ -38,7 +38,7 @@ def replacePathSeperator(path, oldSep, newSep):
 print(replacePathSeperator(base_src, '\\', '/') )
 #print(replacePathSeperator(base_src, '/', os.sep) #os.sep is '\\' on Windows
 
-def folderEncodingLookUp(folder):
+def folderEncodingLookUp(folderName):
     """Given a folder code, and then return a folder path
 
     Where the folder should be located? Its 1st char is the hints.
@@ -53,12 +53,35 @@ def folderEncodingLookUp(folder):
     Px => PW/x
     Rx => RL/x
     Sx => SH/x
-    LX => SL/x
+    Lx => SL/x
     Tx => TO/x
-    """
+
+    And the full path is constructed from the 2nd char too.
+    For example:
+    AB0079 => AC/B/AB0079
+    DE0005 => DY/E/DE0005
+
+    Algorithm:
     # Get the 1st char of the folder
     # Lookup from the lookup table
     # Generate a path
+    """
+    lookUpTable = { #build dict by a={}, or dict(a) to convert a sequence to a dict directly
+        'A': 'AC',
+        'D': 'DY',
+        'F': 'FC',
+        'G': 'GC',
+        'L': 'SL',
+        'P': 'PW',
+        'R': 'RL',
+        'S': 'SH',
+        'T': 'TO',
+        'Y': 'IY',
+        }
+
+    firstChar = folderName[0:1] # character in position 0
+    secondChar = folderName[1:2] # character in position 1
+    return os.path.join(lookUpTable[firstChar], secondChar, folderName)    
 
 
 # for folder in folders:
