@@ -81,7 +81,7 @@ def lookupFolderEncoding(folderName):
 
     firstChar = folderName[0:1] # character in position 0
     secondChar = folderName[1:2] # character in position 1
-    return os.path.join(lookUpTable[firstChar], secondChar, folderName)
+    return os.path.join(lookUpTable[firstChar], secondChar)
 
 def testlookupFolderEncoding(folderName):
     print(lookupFolderEncoding(folderName))
@@ -90,6 +90,18 @@ testlookupFolderEncoding('AC0078')
 testlookupFolderEncoding('AB0079')
 testlookupFolderEncoding('DY0084')
 testlookupFolderEncoding('DM0003')
+
+def lookupFolderPath(folderName):
+    folderCode = lookupFolderEncoding(folderName)
+    return os.path.join(folderCode, folderName)
+
+def testlookupFolderPath(folderName):
+    print(lookupFolderPath(folderName))
+
+testlookupFolderPath('AC0001')
+testlookupFolderPath('AB0079')
+testlookupFolderPath('DY0084')
+testlookupFolderPath('DB0003')
 
 
 # for folder in folders:
