@@ -133,20 +133,19 @@ def selectSubfolder(path):
     user_select = input('Which one?')
     print(lists[int(user_select)])
 
-    # rename = None
-    # while rename=None:
-    #     is_rename = input('Need to rename?')
-    #     case 'y':
-    #     case 'n':
+
     is_rename = input('Need to rename?')
     rename = {'y':'y', 'Y':'y','Yes':'y',
                 'n':'n', 'N':'n','No':'n'}
 
-    try:
-        print('You say ' + rename[is_rename])
-    except (KeyError):
-        print('Please choose between "Y" or "N".')
-    print(is_rename)
+    is_rename = None
+    while (is_rename == None ):
+        try:
+            print('You say ' + rename[is_rename])
+        except (KeyError):
+            print('Please choose between "Y" or "N".')
+            rename = None
+        print(is_rename)
 
 
 def testselectSubfolder(path):
