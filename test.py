@@ -124,6 +124,12 @@ print('----testlookupSubfolder----')
 testlookupSubfolder(buildFolderPath('AC0018')) # it exists
 testlookupSubfolder(buildFolderPath('AC00180')) # it does not exist
 
+def isFolderExist(folderName):
+    """Check if folder exists
+    """
+    return os.path.exists('folderName')
+
+
 def selectSubfolder(path):
     """Interactive with user to select a given set of subfolders
     """
