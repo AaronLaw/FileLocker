@@ -25,7 +25,10 @@ Google: python path sep on windows
 -> http://stackoverflow.com/questions/16010992/how-to-use-directory-separator-in-both-linux-and-windows
 -> https://docs.python.org/3/library/pathlib.html#module-pathlib
 
-I should use os.path.join() to build a path rather than I build it myself with '/' and string
+I should use os.path.join() to build a path rather than I build it myself with '/' and string.
+-> Python Cookbook, 3rd edition:
+>>> For any manipulation of filenames, you should use teh os.path module instead of trying to cook up your own code using the standard string operations. In part, this is for portability. The os.path module knows about differences between Unix and Windows and can reliable deal with filenames such as Data/data.csv and Data\data.csv.
+
 
 How to print 'c:\some\name' on Windows? try to use a raw string:
 print(r'c:\some\name')
