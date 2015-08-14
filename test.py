@@ -130,8 +130,17 @@ testlookupSubfolder(buildFolderPath('AC00180')) # it does not exist
 
 def isFolderExist(path):
     """Check if folder exists
+    Given a path, and return a boolean
     """
     return os.path.exists(path)
+
+def testisFolderExist(path):
+    print(isFolderExist(path))
+
+print('----testisFolderExist----')
+# testisFolderExist('H:\\FILES\\2_AUDIT DEPT\\Yr 2015\\AC\\C')
+testisFolderExist(buildFolderPath('AC0018')) # it exists
+testisFolderExist(buildFolderPath('AC00180')) # it does not exist
 
 
 def selectSubfolder(path):
