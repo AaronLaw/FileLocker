@@ -44,3 +44,4 @@ https://docs.python.org/3/library/os.html -> os.listdir() in https://docs.python
 
 Python has no switch / case:
 Google: python case -> http://codingstyleguide.com/style/180/python-pythonic-way-to-implement-switchcase-statements
+-> http://c2.com/cgi-bin/wiki?SwitchStatement

@@ -94,6 +94,9 @@ testlookupFolderEncoding('DY0084')
 testlookupFolderEncoding('DM0003')
 
 def buildFolderPath(folderName):
+    """Build a path base on base_path.
+    Return a string represent the full path.
+    """
     folderCode = lookupFolderEncoding(folderName)
     return os.path.join(base_path, 'Yr '+year, folderCode, folderName)
 
@@ -109,6 +112,7 @@ testbuildFolderPath('DB0003')
 
 def lookupSubfolder(path):
     """To lookup subfolders in a given path
+    Given a path and return a list of subfolders
     """
     try:
         return os.listdir(path)
@@ -124,43 +128,54 @@ print('----testlookupSubfolder----')
 testlookupSubfolder(buildFolderPath('AC0018')) # it exists
 testlookupSubfolder(buildFolderPath('AC00180')) # it does not exist
 
-def isFolderExist(folderName):
+def isFolderExist(path):
     """Check if folder exists
     """
-    return os.path.exists('folderName')
+    return os.path.exists(path)
 
 
 def selectSubfolder(path):
     """Interactive with user to select a given set of subfolders
+
+    Given the path of a folder, and look into its subfolders.
+    Folder only, file is not selectable!
+    Return the name of selected subfolder
+
+    Algorithm:
+    Given a path
+    list subfolders & subfiles of this path
+    ask user to choose
+    if a subfolder is chosen
+        do sth...
+        return the name of this subfolder
+    else
+        tell user only folder is selectable
+        retry
     """
-    lists = lookupSubfolder(buildFolderPath(path))
-    i = 1
+    lists = lookupSubfolder(path)
+    i = 0
     for folder in lists:
         print(str(i) + '......' + folder)
         i = i+1
+
+    
     user_select = input('Which one?')
-    print(lists[int(user_select)])
+    full_path = os.path.join( path, lists[int(user_select)]) # Create the full path of this subfolder
+    if os.path.isdir(full_path):
+        print('You have choose ' + lists[int(user_select)] + '. This is:')
+        print(full_path)
+        return full_path
 
-
-    is_rename = input('Need to rename?')
-    rename = {'y':'y', 'Y':'y','Yes':'y',
-                'n':'n', 'N':'n','No':'n'}
-
-    is_rename = None
-    while (is_rename == None ):
-        try:
-            print('You say ' + rename[is_rename])
-        except (KeyError):
-            print('Please choose between "Y" or "N".')
-            rename = None
-        print(is_rename)
-
+    else: # directory or nothing, that's why elif os.path.isfile() is no need
+        print('Sorry, only folder is selectable')
+        # retry
+        lists = lookupSubfolder(path)
 
 def testselectSubfolder(path):
     print(selectSubfolder(path))
 
 print('----testselectSubfolder----')
-testselectSubfolder('AC0018')
+testselectSubfolder(buildFolderPath('AC0018'))
 
 # for folder in folders:
 #     src = base_src + '\\' + folder
