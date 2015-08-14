@@ -19,6 +19,7 @@ json
 Python doc:
 https://docs.python.org/3/tutorial/index.html
 Google: python 入門指南
+Github: python cookbook
 
 To handle path sep on Windows:
 Google: python path sep on windows
