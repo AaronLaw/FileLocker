@@ -24,7 +24,7 @@ print(os.path.join('a:', os.sep, 'c') )
 print(os.path.dirname(base_src))
 
 
-base_src1="H:\FILES\2_AUDIT DEPT\Yr 2015\AC\A".split('\\')
+base_src1=r"H:\FILES\2_AUDIT DEPT\Yr 2015\AC\A".split('\\')
 print(base_src1)
 
 for element in base_src1:
