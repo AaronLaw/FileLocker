@@ -186,6 +186,34 @@ def testselectSubfolder(path):
 print('----testselectSubfolder----')
 testselectSubfolder(buildFolderPath('AC0018'))
 
+
+def askInput(prompt, complaint='Yes or no, please!'):
+    while True:
+        ok = input(prompt)
+        if ok in ('y', 'Y', 'yes'):
+            return True
+        if ok in ('n', 'N', 'no'):
+            return False
+        else:
+            print(complaint)
+            raise KeyError('uncopperative user')
+
+
+
+def askRename(folderName, complant='Y or N, please!'):
+    """Ask if user want to rename the given folder"""
+    while True:
+        ok = input('Do you want to rename it?')
+        if ok in ('y', 'Y', 'Yes', 'yes'):
+            return True
+        if ok in('n', 'N', 'No', 'no'):
+            return False
+        else:
+            print(complaint)
+            raise KeyError('uncopperative user')
+
+
+
 # for folder in folders:
 #     src = base_src + '\\' + folder
 #     dist = base_dist + '\\' + folder
