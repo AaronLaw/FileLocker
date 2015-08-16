@@ -163,10 +163,13 @@ def selectSubfolder(path):
     """
     lists = lookupSubfolder(path)
     i = 0
-    for folder in lists:
-        print(str(i) + '......' + folder)
-        i = i+1
-
+    if len(lists) != 0: # Check if the folder is empty or not
+        for folder in lists:
+            print(str(i) + '......' + folder)
+            i = i+1
+    else:
+        print('Erron, the folder is empty')
+        raise Exception
     
     user_select = input('Which one?')
     full_path = os.path.join( path, lists[int(user_select)]) # Create the full path of this subfolder
