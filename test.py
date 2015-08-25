@@ -161,8 +161,7 @@ def selectSubfolder(path):
         tell user only folder is selectable
         retry
     """
-    lists = lookupSubfolder(patydccc1+
-        -eh)
+    lists = lookupSubfolder(path)
     i = 0
     if len(lists) != 0: # Check if the folder is empty or not
         for folder in lists:
@@ -170,7 +169,7 @@ def selectSubfolder(path):
             i = i+1
     else:
         print('Error, the folder is empty')
-        raise Exception
+        raise Exception('Folder is empty')
     
     user_select = input('Which one?')
     full_path = os.path.join( path, lists[int(user_select)]) # Create the full path of this subfolder
