@@ -170,18 +170,21 @@ def selectSubfolder(path):
     else:
         print('Error, the folder is empty')
         raise Exception('Folder is empty')
-    
-    user_select = input('Which one?')
-    full_path = os.path.join( path, lists[int(user_select)]) # Create the full path of this subfolder
-    if os.path.isdir(full_path):
-        print('You have choose ' + lists[int(user_select)] + '. This is:')
-        print(full_path)
-        return full_path
 
-    else: # directory or nothing, that's why elif os.path.isfile() is no need
-        print('Sorry, only folder is selectable')
-        # retry
-        lists = lookupSubfolder(path)
+    try:
+        user_select = int(input('Which one?'))
+        full_path = os.path.join( path, lists[user_select]) # Create the full path of this subfolder
+        if os.path.isdir(full_path):
+            print('You have choose ' + lists[user_select] + '. This is:')
+            print(full_path)
+            return full_path
+
+        else: # directory or nothing, that's why elif os.path.isfile() is no need
+            print('Sorry, only folder is selectable')
+            # retry
+            lists = lookupSubfolder(path)
+    except ValueError as err:
+        print('Value error: ' + err)
 
 def testselectSubfolder(path):
     print(selectSubfolder(path))
