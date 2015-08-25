@@ -161,14 +161,15 @@ def selectSubfolder(path):
         tell user only folder is selectable
         retry
     """
-    lists = lookupSubfolder(path)
+    lists = lookupSubfolder(patydccc1+
+        -eh)
     i = 0
     if len(lists) != 0: # Check if the folder is empty or not
         for folder in lists:
             print(str(i) + '......' + folder)
             i = i+1
     else:
-        print('Erron, the folder is empty')
+        print('Error, the folder is empty')
         raise Exception
     
     user_select = input('Which one?')
