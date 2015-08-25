@@ -173,6 +173,9 @@ def selectSubfolder(path):
 
     try:
         user_select = int(input('Which one?'))
+    except ValueError as err:
+        print('Value error: ' + err)
+    else:
         full_path = os.path.join( path, lists[user_select]) # Create the full path of this subfolder
         if os.path.isdir(full_path):
             print('You have choose ' + lists[user_select] + '. This is:')
@@ -183,8 +186,6 @@ def selectSubfolder(path):
             print('Sorry, only folder is selectable')
             # retry
             lists = lookupSubfolder(path)
-    except ValueError as err:
-        print('Value error: ' + err)
 
 def testselectSubfolder(path):
     print(selectSubfolder(path))
