@@ -142,6 +142,16 @@ print('----testisFolderExist----')
 testisFolderExist(buildFolderPath('AC0018')) # it exists
 testisFolderExist(buildFolderPath('AC00180')) # it does not exist
 
+def askRename(promtp, complaint='Yes or no, please!'):
+    while True:
+        ok = input(prompt)
+        if ok in ('y', 'Y', 'yes'):
+            return True
+        if ok in ('n', 'N', 'no'):
+            return False
+        else:
+            print(complaint)
+            raise KeyErron('uncopperative user')
 
 def selectSubfolder(path):
     """Interactive with user to select a given set of subfolders
@@ -150,6 +160,7 @@ def selectSubfolder(path):
     Folder only, file is not selectable!
     Return the name of selected subfolder
 
+<<<<<<< Updated upstream
     Algorithm:
     Given a path
     list subfolders & subfiles of this path
@@ -170,6 +181,7 @@ def selectSubfolder(path):
     else:
         print('Error, the folder is empty')
         raise Exception('Folder is empty')
+
 
     try:
         user_select = int(input('Which one?'))
@@ -218,7 +230,6 @@ def askRename(folderName, complant='Y or N, please!'):
         else:
             print(complaint)
             raise KeyError('uncopperative user')
-
 
 
 # for folder in folders:
